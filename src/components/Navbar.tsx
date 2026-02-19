@@ -29,15 +29,15 @@ export default function Navbar({ user }: { user?: any }) {
   }, []);
 
   return (
-    <nav className="border-b border-border bg-background/80 backdrop-blur-md sticky top-0 z-50 transition-all duration-300 shadow-sm">
+    <nav className="border-b border-border bg-background/95 backdrop-blur-md sticky top-0 z-50 transition-all duration-300 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <Link
             href="/"
-            className="text-2xl md:text-3xl font-bold tracking-tighter text-foreground hover:text-primary transition-colors"
+            className="text-2xl md:text-3xl font-bold tracking-tighter text-primary hover:text-accent transition-colors duration-300"
           >
-            LUXE<span className="text-primary">.</span>
+            YesDeal<span className="text-accent">.</span>
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -65,18 +65,18 @@ export default function Navbar({ user }: { user?: any }) {
           {/* Right Icons */}
           <div className="flex items-center gap-2 md:gap-4">
             {/* Search (optional, can be expanded later) */}
-            <button className="p-2 hover:bg-muted rounded-full transition-colors text-foreground/80 hover:text-primary">
+            <button className="p-2 hover:bg-muted rounded-full transition-colors text-foreground/70 hover:text-primary duration-300">
               <Search size={20} />
             </button>
 
             {/* Cart */}
             <Link
               href="/cart"
-              className="relative p-2 hover:bg-muted rounded-full transition-colors text-foreground/80 hover:text-primary"
+              className="relative p-2 hover:bg-muted rounded-full transition-colors text-foreground/70 hover:text-primary duration-300"
             >
               <ShoppingBag size={22} />
               {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full shadow-md">
+                <span className="absolute -top-1 -right-1 bg-accent text-accent-foreground text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full shadow-md animate-scale-in">
                   {totalItems}
                 </span>
               )}
@@ -87,9 +87,9 @@ export default function Navbar({ user }: { user?: any }) {
               <div className="relative" ref={profileRef}>
                 <button
                   onClick={() => setIsProfileOpen(!isProfileOpen)}
-                  className="flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-primary/10 transition-colors border border-border focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  className="flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-primary/10 transition-colors duration-300 border border-border focus:outline-none focus:ring-2 focus:ring-primary/50"
                 >
-                  <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold uppercase">
+                  <div className="w-6 h-6 bg-accent text-accent-foreground rounded-full flex items-center justify-center text-xs font-bold uppercase">
                     {user.name?.[0] || user.email?.[0] || "U"}
                   </div>
                 </button>
