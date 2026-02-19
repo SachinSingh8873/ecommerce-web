@@ -2,7 +2,7 @@ import prisma from "@/lib/prismadb";
 import Image from "next/image";
 import AddToCart from "@/components/add-to-cart";
 import { notFound } from "next/navigation";
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 
 export const dynamic = 'force-dynamic';
 
@@ -12,6 +12,14 @@ interface ProductPageProps {
 
 import { Product } from "@/types";
 import FadeIn from "@/components/ui/fade-in";
+
+export const viewport: Viewport = {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+    themeColor: "#1e3a5f",
+};
 
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
     const { id } = await params;
