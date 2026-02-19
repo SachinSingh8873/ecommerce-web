@@ -19,11 +19,11 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
         const product = await prisma.product.findUnique({ where: { id } });
         if (!product) return { title: "Product Not Found" };
         return {
-            title: `${product.name} | LUXE`,
+            title: `${product.name} | YesDeal`,
             description: product.description,
         }
     } catch (e) {
-        return { title: "Mock Product | LUXE" }
+        return { title: "Mock Product | YesDeal" }
     }
 }
 

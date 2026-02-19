@@ -4,8 +4,8 @@ import Image from "next/image";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Shop | LUXE",
-    description: "Browse our exclusive collection.",
+    title: "Shop | YesDeal",
+    description: "Explore our curated collection of premium products designed for the modern lifestyle.",
 };
 
 interface ProductsPageProps {
@@ -61,15 +61,15 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
     return (
         <div className="min-h-screen bg-background text-foreground">
             {/* Header / Filter Bar */}
-            <div className="sticky top-16 z-40 bg-background/80 backdrop-blur-md border-b border-border">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-                    <h1 className="text-xl font-bold capitalize tracking-tight">{category || "All Products"}</h1>
-                    <div className="flex gap-4 overflow-x-auto pb-2 md:pb-0 no-scrollbar">
+            <div className="sticky top-16 z-40 bg-background/95 backdrop-blur-md border-b border-border">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <h1 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight">{category || "All Products"}</h1>
+                    <div className="flex gap-3 overflow-x-auto pb-2 md:pb-0 no-scrollbar">
                         <Link
                             href="/products"
-                            className={`px-4 py-2 rounded-full text-sm font-medium transition whitespace-nowrap ${!category
-                                    ? "bg-primary text-primary-foreground"
-                                    : "bg-muted text-muted-foreground hover:bg-muted/80"
+                            className={`px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap duration-300 ${!category
+                                    ? "bg-accent text-accent-foreground shadow-md"
+                                    : "bg-muted text-muted-foreground hover:bg-muted/70"
                                 }`}
                         >
                             All
@@ -78,9 +78,9 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
                             <Link
                                 key={c.category}
                                 href={`/products?category=${c.category}`}
-                                className={`px-4 py-2 rounded-full text-sm font-medium transition whitespace-nowrap ${category === c.category
-                                        ? "bg-primary text-primary-foreground"
-                                        : "bg-muted text-muted-foreground hover:bg-muted/80"
+                                className={`px-5 py-2 rounded-full text-sm font-semibold transition whitespace-nowrap duration-300 ${category === c.category
+                                        ? "bg-accent text-accent-foreground shadow-md"
+                                        : "bg-muted text-muted-foreground hover:bg-muted/70"
                                     }`}
                             >
                                 {c.category}
@@ -95,14 +95,14 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
                     {products.map((product, i) => (
                         <FadeIn key={product.id} delay={i * 0.05}>
                             <Link href={`/products/${product.id}`} className="group block h-full">
-                                <div className="border border-border rounded-xl bg-card overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col">
+                                <div className="rounded-2xl bg-card overflow-hidden transition-all duration-500 hover:shadow-2xl hover:scale-105 h-full flex flex-col">
                                     <div className="relative aspect-[3/4] w-full overflow-hidden bg-muted">
                                         {product.images[0] ? (
                                             <Image
                                                 src={product.images[0]}
                                                 alt={product.name}
                                                 fill
-                                                className="object-cover object-center group-hover:scale-105 transition duration-500 ease-in-out"
+                                                className="object-cover object-center group-hover:scale-110 transition duration-700 ease-in-out"
                                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                             />
                                         ) : (
@@ -110,18 +110,18 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
                                                 <span className="text-sm">No Image</span>
                                             </div>
                                         )}
-                                        {/* Overlay gradient for text readability if needed, or quick adds */}
-                                        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                        {/* Overlay gradient */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     </div>
                                     <div className="p-5 flex flex-col flex-grow">
-                                        <div className="mb-2">
-                                            <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{product.category}</p>
-                                            <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-1">{product.name}</h3>
+                                        <div className="mb-3">
+                                            <p className="text-xs font-bold uppercase tracking-widest text-accent mb-1">{product.category}</p>
+                                            <h3 className="text-lg font-semibold text-foreground group-hover:text-accent transition-colors duration-300 line-clamp-2">{product.name}</h3>
                                         </div>
                                         <p className="text-sm text-muted-foreground line-clamp-2 mb-4 flex-grow">{product.description}</p>
                                         <div className="flex items-center justify-between mt-auto pt-4 border-t border-border">
                                             <span className="text-lg font-bold text-foreground">${product.price.toFixed(2)}</span>
-                                            <span className="text-sm font-medium text-primary hover:underline">View Details</span>
+                                            <span className="text-sm font-semibold text-accent group-hover:text-accent/80 transition-colors duration-300">Shop</span>
                                         </div>
                                     </div>
                                 </div>
