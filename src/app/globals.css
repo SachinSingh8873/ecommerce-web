@@ -2,29 +2,20 @@
 @source "../../node_modules/@uploadthing/react";
 
 :root {
-  --background: #fafafa;        /* Soft off-white */
-  --foreground: #1e1e1e;         /* Dark gray */
-  --primary: #b8860b;            /* Warm gold */
-  --primary-foreground: #ffffff; /* White */
-  --muted: #f0f0f0;              /* Light gray */
-  --muted-foreground: #6b6b6b;   /* Medium gray */
-  --card: #ffffff;               /* White */
-  --card-foreground: #1e1e1e;
-  --border: #dddddd;             /* Light border */
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #121212;        /* Deep charcoal */
-    --foreground: #f5f5f5;        /* Off-white */
-    --primary: #d4af37;           /* Rich gold */
-    --primary-foreground: #121212;
-    --muted: #2a2a2a;             /* Dark gray */
-    --muted-foreground: #a0a0a0;  /* Light gray */
-    --card: #1e1e1e;              /* Slightly lighter */
-    --card-foreground: #f5f5f5;
-    --border: #333333;            /* Dark border */
-  }
+  --background: #F8FAFC;        /* Clean off-white background */
+  --foreground: #1a1a2e;        /* Deep navy-blue text */
+  --primary: #1e3a5f;           /* Deep Indigo/Midnight Blue */
+  --primary-foreground: #ffffff; /* White text on primary */
+  --accent: #10b981;            /* Emerald Green for CTAs */
+  --accent-foreground: #ffffff;
+  --muted: #f1f5f9;             /* Very light gray */
+  --muted-foreground: #64748b;  /* Medium gray */
+  --card: #ffffff;              /* White cards */
+  --card-foreground: #1a1a2e;
+  --border: #e2e8f0;            /* Light border */
+  --success: #10b981;           /* Success state */
+  --warning: #f59e0b;           /* Warning state */
+  --destructive: #ef4444;       /* Destructive state */
 }
 
 @theme inline {
@@ -32,11 +23,16 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-border: var(--border);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -45,4 +41,59 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Premium animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleInCenter {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.4s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleInCenter 0.3s ease-out;
 }

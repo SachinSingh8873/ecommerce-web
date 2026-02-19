@@ -8,8 +8,15 @@ import { CartProvider } from "@/context/cart-context";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "LUXE | Premium E-commerce",
-  description: "High-end apparel and accessories.",
+  title: "YesDeal | Premium Products & Lifestyle",
+  description: "Discover curated premium products designed for the modern lifestyle. Quality, style, and excellence in every purchase.",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+    themeColor: "#1e3a5f",
+  },
 };
 
 import { auth } from "@/auth";
